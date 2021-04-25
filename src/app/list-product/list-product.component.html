@@ -1,0 +1,21 @@
+<div class='container'>
+<h3>List of Products...</h3>
+<table class='table table-striped mt-5'>
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>COST</th>
+        <th>DESCRIPTION</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let product of allProducts'>
+            <td>{{ product.productId }}</td>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productCost}}</td>
+            <td>{{ product.productDescription }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

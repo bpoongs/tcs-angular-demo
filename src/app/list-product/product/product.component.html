@@ -1,0 +1,8 @@
+{{ productData.productId }} ,
+{{ productData.productName | uppercase}} ,
+{{ productData.productCost }} ,
+{{ productData.productDescription }} ,
+<button 
+    type='button' 
+    class='btn btn-danger'
+    (click)='deleteProduct(productData.productId)'>Delete</button>

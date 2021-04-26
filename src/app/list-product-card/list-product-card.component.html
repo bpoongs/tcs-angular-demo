@@ -1,0 +1,77 @@
+<div class='container mt-1'>
+    <h2 class='bg-primary bg-light  pt-3 pb-3 mb-2'>Welcome to my Shopping Site!!</h2>
+    <div class='row mb-5'>
+        <div class='col-8'>
+            <h3>Product List</h3>
+            <div class='row mt-5'>
+                <div 
+                    appColor
+                    class="col-sm-12 col-md-6 col-lg-3" 
+                    *ngFor='let product of allProducts'>
+                    <div class="card">                 
+                        <img class="card-img-top"
+                            [src]="product.productImageUrl"
+                            alt="image"/>
+                    
+                        <div class="card-body">
+                            <div class="row d-flex justify-content-between">
+                                <div class="">{{ product.productName }}</div>
+                                <div class="">$ {{ product.productCost }} </div>
+                            </div>
+                            <div class="mt-1 row d-flex flex-row justify-content-between">
+                                <div class="small text-muted">
+                                   {{ product.productDescription }}
+                                </div>
+                                <div class="small">
+                                    <button 
+                                        type='button' 
+                                        class="btn btn-danger btn-sm mt-2"
+                                        (click)='addToCart(product)'>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class='col-4 bg-info p-5'>
+            <h4>Shopping Cart</h4>
+            <div *ngIf='cartProducts.length==0; else cartList'>
+                <h6>Cart is Empty!!</h6>
+            </div>
+            <!--<div *ngIf='cartProducts.length!=0'>-->
+            <ng-template #cartList>
+                <div class='row m-2'>   
+                    <div class='col-12'>   
+                        <ul class="list-group" 
+                            *ngFor="let cart of cartProducts">
+                            <li appColor class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="mb-0">{{ cart.productName | uppercase}}</h4>
+                                    <p class="mb-0">$ {{ cart.productCost }}.00</p>
+                                    <button type="button" 
+                                            class="btn btn-link text-secondary float-right" 
+                                            (click)="removeFromCart(cart.productId)">
+                                        <i class="material-icons">delete_forever</i>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <h3 class="mb-0">Total</h3>
+                                <p class="font-20 mb-0">$ {{ total }}.00</p>
+                                <p>  </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <!--</div>-->
+            </ng-template>
+        </div>
+        
+    </div>
+</div>

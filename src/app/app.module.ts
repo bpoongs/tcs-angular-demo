@@ -7,7 +7,10 @@ import { HelloComponent } from './hello/hello.component';
 import { CounterComponent } from './counter/counter.component';
 import { FormsModule } from '@angular/forms';
 import { ListProductComponent } from './list-product/list-product.component';
-import { ListProducctCardComponent } from './list-producct-card/list-producct-card.component';
+import { ListProductCardComponent } from './list-product-card/list-product-card.component';
+import { ColorDirective } from './directives/color.directive';
+import { SortPipe } from './pipes/sort.pipe';
+import { ProductComponent } from './list-product/product/product.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { ListProducctCardComponent } from './list-producct-card/list-producct-ca
     HelloComponent,
     CounterComponent,
     ListProductComponent,
-    ListProducctCardComponent
+    ListProductCardComponent,
+    ColorDirective,
+    SortPipe,
+    ProductComponent    
   ],
   imports: [
     BrowserModule,

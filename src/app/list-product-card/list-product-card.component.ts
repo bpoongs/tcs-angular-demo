@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
 import { Product } from './product';
 
 @Component({
@@ -10,6 +11,9 @@ export class ListProductCardComponent implements OnInit {
 
   cartProducts: Product[] = [];
   total: number = 0;
+  allProducts: Product[];
+
+  /*
   allProducts: Product[] = [
     {
       productId: 101,
@@ -30,14 +34,26 @@ export class ListProductCardComponent implements OnInit {
       productImageUrl: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       productName: 'Chips',
       productCost: 2,
-      productDescription: 'Crispy Chips.'
+      productDescription: 'Crispy Chips.' 
     }
   ];
+  */
+  //productService: ProductService;
+  constructor(private productService: ProductService) {
+      //this.productService = productService;
+      //this.allProducts = this.productService.getAllProducts();
 
-  constructor() { }
+   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { 
+      //this.allProducts = this.productService.getAllProducts();
+      this.productService.getAllProducts().subscribe(
+        (response) => {
+          console.log(response);
+          this.allProducts = response;
+        }
+      );
+   }
 
   addToCart(product: Product){
     this.cartProducts.push(product);

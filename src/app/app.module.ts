@@ -11,6 +11,8 @@ import { ListProductCardComponent } from './list-product-card/list-product-card.
 import { ColorDirective } from './directives/color.directive';
 import { SortPipe } from './pipes/sort.pipe';
 import { ProductComponent } from './list-product/product/product.component';
+import { ClimateComponent } from './climate/climate.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { ProductComponent } from './list-product/product/product.component';
     ListProductCardComponent,
     ColorDirective,
     SortPipe,
-    ProductComponent    
+    ProductComponent,
+    ClimateComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

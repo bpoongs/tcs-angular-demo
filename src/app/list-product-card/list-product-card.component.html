@@ -3,6 +3,7 @@
     <div class='row mb-5'>
         <div class='col-8'>
             <h3>Product List</h3>
+            <button type='button' class='btn btn-success' (click)='toAddProduct()'>+</button>
             <div class='row mt-5'>
                 <div 
                     appColor
@@ -28,6 +29,14 @@
                                         class="btn btn-danger btn-sm mt-2"
                                         (click)='addToCart(product)'>
                                         Add to Cart
+                                    </button>
+                                </div>
+                                <div class="small">
+                                    <button 
+                                        type='button' 
+                                        class="btn btn-primary btn-sm mt-2"
+                                        (click)='editProduct(product.productId)'>
+                                        Edit
                                     </button>
                                 </div>
                             </div>

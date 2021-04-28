@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from './product';
 
@@ -39,21 +40,30 @@ export class ListProductCardComponent implements OnInit {
   ];
   */
   //productService: ProductService;
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
       //this.productService = productService;
       //this.allProducts = this.productService.getAllProducts();
 
    }
 
   ngOnInit(): void { 
-      //this.allProducts = this.productService.getAllProducts();
+      this.allProducts = this.productService.getAllProducts();
+     /*
       this.productService.getAllProducts().subscribe(
         (response) => {
           console.log(response);
           this.allProducts = response;
         }
       );
+      */
    }
+  editProduct(productId: number){
+    this.router.navigate(['/edit-product',productId]);
+  }
+  toAddProduct(){
+    //navigate to add-product component
+    this.router.navigate(['/add-product']);
+  }
 
   addToCart(product: Product){
     this.cartProducts.push(product);

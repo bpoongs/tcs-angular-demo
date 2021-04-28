@@ -13,6 +13,10 @@ import { SortPipe } from './pipes/sort.pipe';
 import { ProductComponent } from './list-product/product/product.component';
 import { ClimateComponent } from './climate/climate.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
+import { ErrorComponent } from './error/error.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { HttpClientModule } from '@angular/common/http';
     ColorDirective,
     SortPipe,
     ProductComponent,
-    ClimateComponent    
+    ClimateComponent,
+    HeaderComponent,
+    ErrorComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

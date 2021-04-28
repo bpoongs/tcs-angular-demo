@@ -8,9 +8,9 @@ import { Product } from '../list-product-card/product';
 })
 export class ProductService {
 
-  allProducts: Product[];
+  //allProducts: Product[];
   baseUrl: string = 'assets/data/products.json';
-  /*
+  
   allProducts: Product[] = [
     {
       productId: 101,
@@ -34,11 +34,33 @@ export class ProductService {
       productDescription: 'Crispy Chips.' 
     }
   ];
-  */
+  
   constructor(private httpClient: HttpClient) { }
 
-  getAllProducts(): Observable<Product[]>{
-    return this.httpClient.get<Product[]>(this.baseUrl);
-    //return this.allProducts;
+ // getAllProducts(): Observable<Product[]>{
+  getAllProducts(){
+    //return this.httpClient.get<Product[]>(this.baseUrl);
+    return this.allProducts;
+  }
+
+  addProduct(product: Product){
+    product.productId = this.allProducts[this.allProducts.length-1].productId + 1;
+    this.allProducts.push(product);
+  }
+
+  getProduct(productId: number){
+    let product;
+    for(let i=0; i<this.allProducts.length; i++){
+      if(this.allProducts[i].productId == productId){
+        product = this.allProducts[i];
+      }
+    }
+    return product;
+    //return this.allProducts.find(x => x.productId === productId);
+  }
+
+  updateProduct(product: Product){
+
+
   }
 }

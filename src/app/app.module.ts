@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { CounterComponent } from './counter/counter.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListProductComponent } from './list-product/list-product.component';
 import { ListProductCardComponent } from './list-product-card/list-product-card.component';
 import { ColorDirective } from './directives/color.directive';
@@ -17,6 +17,10 @@ import { HeaderComponent } from './header/header.component';
 import { ErrorComponent } from './error/error.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { TemplateUserRegistrationComponent } from './template-user-registration/template-user-registration.component';
+import { ReactiveUserRegistrationComponent } from './reactive-user-registration/reactive-user-registration.component';
+import { TemplateInfoComponent } from './template-info/template-info.component';
+import { ReactiveInfoComponent } from './reactive-info/reactive-info.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +36,18 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     HeaderComponent,
     ErrorComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    TemplateUserRegistrationComponent,
+    ReactiveUserRegistrationComponent,
+    TemplateInfoComponent,
+    ReactiveInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

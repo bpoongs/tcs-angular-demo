@@ -47,18 +47,18 @@ export class ListProductCardComponent implements OnInit {
    }
 
   ngOnInit(): void { 
-      this.allProducts = this.productService.getAllProducts();
-     /*
+      //this.allProducts = this.productService.getAllProducts();
+     
       this.productService.getAllProducts().subscribe(
         (response) => {
           console.log(response);
           this.allProducts = response;
         }
       );
-      */
+      
    }
   editProduct(productId: number){
-    this.router.navigate(['/edit-product',productId]);
+    this.router.navigate(['/edit-product', productId+'']);
   }
   toAddProduct(){
     //navigate to add-product component
@@ -72,7 +72,7 @@ export class ListProductCardComponent implements OnInit {
 
   removeFromCart(productId: number){
     for( var i = 0; i < this.cartProducts.length; i++){                                
-      if ( this.cartProducts[i].productId == productId) { 
+      if ( this.cartProducts[i].id == productId) { 
           this.total = this.total - this.cartProducts[i].productCost;
           this.cartProducts.splice(i, 1); 
           break;

@@ -1,0 +1,85 @@
+<!-- main app container -->
+<div class="d-flex justify-content-center">
+    <div class="card m-3">
+        <h5 class="card-header">Angular Template-Driven Form </h5>
+        <div class="card-body">
+            <form 
+                name="form" 
+                (ngSubmit)="onSubmit()" 
+                #userForm="ngForm">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Title</label>
+                        <select 
+                            name="title" 
+                            class="form-control" 
+                            [(ngModel)]="model.title">
+                            <option value=""></option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Miss">Miss</option>
+                            <option value="Ms">Ms</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-5">
+                        <label>First Name</label>
+                        <input 
+                            type="text" 
+                            name="firstName" 
+                            class="form-control" 
+                            [(ngModel)]="model.firstName">
+                    </div>
+                    <div class="form-group col-5">
+                        <label>Last Name</label>
+                        <input 
+                            type="text" 
+                            name="lastName" 
+                            class="form-control" 
+                            [(ngModel)]="model.lastName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input 
+                        type="text" 
+                        name="email" 
+                        class="form-control" 
+                        [(ngModel)]="model.email">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Password</label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            class="form-control" 
+                            [(ngModel)]="model.password">
+                    </div>
+                    <div class="form-group col">
+                        <label>Confirm Password</label>
+                        <input 
+                            type="password" 
+                            name="confirmPassword" 
+                            class="form-control"
+                            [(ngModel)]="model.confirmPassword">
+                    </div>
+                </div>
+                <div class="form-group form-check">
+                    <input 
+                        type="checkbox" 
+                        name="acceptTerms" 
+                        id="acceptTerms" 
+                        class="form-check-input"
+                        [(ngModel)]="model.acceptTerms">
+                    <label 
+                        for="acceptTerms" 
+                        class="form-check-label">Accept Terms & Conditions</label>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1">Register</button>
+                    <button class="btn btn-secondary" type="reset">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

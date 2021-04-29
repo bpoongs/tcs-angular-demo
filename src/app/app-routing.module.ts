@@ -7,6 +7,8 @@ import { ErrorComponent } from './error/error.component';
 import { HelloComponent } from './hello/hello.component';
 import { ListProductCardComponent } from './list-product-card/list-product-card.component';
 import { ListProductComponent } from './list-product/list-product.component';
+import { ReactiveUserRegistrationComponent } from './reactive-user-registration/reactive-user-registration.component';
+import { TemplateUserRegistrationComponent } from './template-user-registration/template-user-registration.component';
 
 const routes: Routes = [
   {
@@ -37,6 +39,14 @@ const routes: Routes = [
   {
     path: "edit-product/:prodId",
     component: EditProductComponent
+  },
+  {
+    path: "template-user",
+    component: TemplateUserRegistrationComponent
+  },
+  {
+    path: "reactive-user",
+    component: ReactiveUserRegistrationComponent
   },
   {
     path: "**",

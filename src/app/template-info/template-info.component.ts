@@ -8,8 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateInfoComponent implements OnInit {
 
-  userName: string ='Test';
-  userContact: string ='123456';
+  userName: string;
+  userContact: string;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,6 +17,8 @@ export class TemplateInfoComponent implements OnInit {
 
   displayUser(userForm: NgForm){
     console.log(userForm.value);
-    
+    console.log(userForm.status);
+    console.log(userForm.errors);
+   
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MustMatchDirective } from '../directives/must-match.directive'
 
 @Component({
   selector: 'app-template-user-registration',
@@ -8,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class TemplateUserRegistrationComponent implements OnInit {
 
   model: any = {};
-  onSubmit() {
+
+  onSubmit(userForm: NgForm) {
+    console.log(userForm);
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model, null, 4));
   }
   

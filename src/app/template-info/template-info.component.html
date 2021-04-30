@@ -12,7 +12,23 @@
                         type='text' 
                         id='userName' 
                         name='userName'
+                        #uName='ngModel'
+                        [ngClass]="{ 'is-invalid': uName.touched && uName.invalid}"
+                        required
+                        minlength="2"
+                        maxlength="10"
                         [(ngModel)]='userName'/>
+                    <span 
+                        *ngIf='uName.touched && (uName.errors?.minlength || uName.errors?.maxlength)' 
+                        class="invalid-feedback">
+                        User name must be between 2 to 10 characters.
+                    </span>
+                    <span 
+                        *ngIf='uName.touched && uName.errors?.required' 
+                        class="invalid-feedback">
+                        User Name is required.
+                    </span>
+                   
                 </div>
                 <div class='form-group'>
                     <label for='userContact'>User Contact</label>
@@ -24,10 +40,16 @@
                         [(ngModel)]='userContact'/>
                 </div>
                 <div class='card-footer'>
-                    <button class='btn btn-primary'>Add Info</button>
+                    <button class='btn btn-primary' [disabled]='userForm.invalid'>Add Info</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-{{ userForm.value | json }}
+Control valid : {{ uName.valid }}<br>
+Control invalid : {{ uName.invalid }}<br>
+Control touched : {{ uName.touched }}<br>
+Control errors : {{ uName.errors }}<br>
+Form value : {{ userForm.value | json }}<br>
+Form valid : {{ userForm.valid }}<br>
+Form invalid : {{ userForm.invalid }}

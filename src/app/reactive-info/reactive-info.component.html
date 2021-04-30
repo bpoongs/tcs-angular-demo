@@ -11,7 +11,18 @@
                         class='form-control' 
                         type='text' 
                         id='userName'
+                        [ngClass]="{ 'is-invalid': infoFormGroup.get('userName').touched && infoFormGroup.get('userName').invalid}"
                         formControlName='userName'/>
+                    <span 
+                        *ngIf="infoFormGroup.get('userName').touched && (infoFormGroup.get('userName').errors?.minlength || infoFormGroup.get('userName').errors?.maxlength)"
+                        class="invalid-feedback">
+                        User name must be between 2 to 10 characters.
+                    </span>
+                    <span 
+                        *ngIf="infoFormGroup.get('userName').touched && infoFormGroup.get('userName').errors?.required" 
+                        class="invalid-feedback">
+                        User Name is required.
+                    </span>
                 </div>
                 <div class='form-group'>
                     <label for='userContact'>User Contact</label>
@@ -22,9 +33,12 @@
                         formControlName='userContact'/>
                 </div>
                 <div class='card-footer'>
-                    <button class='btn btn-primary'>Add Info</button>
+                    <button class='btn btn-primary' [disabled]='infoFormGroup.invalid'>Add Info</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+Control valid : {{ infoFormGroup.controls.userName.valid }}<br>
+Control touched : {{ infoFormGroup.controls.userName.touched }}
+<br>Form valid : {{ infoFormGroup.valid }}

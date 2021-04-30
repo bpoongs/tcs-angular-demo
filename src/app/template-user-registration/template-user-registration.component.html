@@ -5,14 +5,17 @@
         <div class="card-body">
             <form 
                 name="form" 
-                (ngSubmit)="onSubmit()" 
-                #userForm="ngForm">
+                #userForm="ngForm"
+                (ngSubmit)="onSubmit(userForm)">
                 <div class="form-row">
                     <div class="form-group col">
                         <label>Title</label>
                         <select 
                             name="title" 
                             class="form-control" 
+                            required
+                            #title="ngModel"
+                            [ngClass]="{ 'is-invalid': title.touched && title.errors}"
                             [(ngModel)]="model.title">
                             <option value=""></option>
                             <option value="Mr">Mr</option>
@@ -20,6 +23,10 @@
                             <option value="Miss">Miss</option>
                             <option value="Ms">Ms</option>
                         </select>
+                        <span *ngIf="title.touched && title.errors?.required" class="invalid-feedback">
+                            Title is required.
+                        </span>
+  
                     </div>
                     <div class="form-group col-5">
                         <label>First Name</label>
@@ -27,7 +34,18 @@
                             type="text" 
                             name="firstName" 
                             class="form-control" 
+                            required
+                            minlength="2"
+                            maxlength="10"
+                            #firstName="ngModel"
+                            [ngClass]="{ 'is-invalid': firstName.touched && firstName.errors}"
                             [(ngModel)]="model.firstName">
+                        <span *ngIf="firstName.errors?.required" class="invalid-feedback">
+                            First Name is required.
+                        </span>
+                        <span *ngIf="firstName.errors?.minlength || firstName.errors?.maxlength" class="invalid-feedback">
+                            First Name should be more than 2 and less than 10 characters.
+                        </span>
                     </div>
                     <div class="form-group col-5">
                         <label>Last Name</label>
@@ -35,7 +53,13 @@
                             type="text" 
                             name="lastName" 
                             class="form-control" 
+                            required
+                            #lastName="ngModel"
+                            [ngClass]="{ 'is-invalid': lastName.touched && lastName.errors}"
                             [(ngModel)]="model.lastName">
+                            <span *ngIf="lastName.touched && lastName.errors?.required" class="invalid-feedback">
+                                Last Name is required.
+                            </span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -44,7 +68,13 @@
                         type="text" 
                         name="email" 
                         class="form-control" 
+                        required
+                        #email="ngModel"
+                        [ngClass]="{ 'is-invalid': email.touched && email.errors}"
                         [(ngModel)]="model.email">
+                    <span *ngIf="email.touched && email.errors?.required" class="invalid-feedback">
+                        <p>Email is required.</p>
+                    </span>
                 </div>
                 <div class="form-row">
                     <div class="form-group col">
@@ -53,7 +83,13 @@
                             type="password" 
                             name="password" 
                             class="form-control" 
+                            required
+                            #password="ngModel"
+                            [ngClass]="{ 'is-invalid': password.touched && password.errors}"
                             [(ngModel)]="model.password">
+                        <span *ngIf="password.touched && password.errors?.required" class="invalid-feedback">
+                            Password is required.
+                        </span>
                     </div>
                     <div class="form-group col">
                         <label>Confirm Password</label>
@@ -61,7 +97,13 @@
                             type="password" 
                             name="confirmPassword" 
                             class="form-control"
+                            required
+                            #cPassword="ngModel"
+                            [ngClass]="{ 'is-invalid': cPassword.touched && cPassword.errors}"
                             [(ngModel)]="model.confirmPassword">
+                        <span *ngIf="cPassword.touched && cPassword.errors?.required" class="invalid-feedback">
+                            Password is required.
+                        </span>
                     </div>
                 </div>
                 <div class="form-group form-check">
@@ -70,10 +112,16 @@
                         name="acceptTerms" 
                         id="acceptTerms" 
                         class="form-check-input"
+                        required
+                        #acceptTerms="ngModel"
+                        [ngClass]="{ 'is-invalid': acceptTerms.touched && acceptTerms.errors}"
                         [(ngModel)]="model.acceptTerms">
                     <label 
                         for="acceptTerms" 
                         class="form-check-label">Accept Terms & Conditions</label>
+                    <span *ngIf="acceptTerms.touched && acceptTerms.errors?.required" class="invalid-feedback">
+                        Accept the terms..
+                    </span>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-primary mr-1">Register</button>

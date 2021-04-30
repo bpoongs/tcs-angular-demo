@@ -40,7 +40,7 @@ import { ReactiveInfoComponent } from './reactive-info/reactive-info.component';
     TemplateUserRegistrationComponent,
     ReactiveUserRegistrationComponent,
     TemplateInfoComponent,
-    ReactiveInfoComponent
+    ReactiveInfoComponent,
   ],
   imports: [
     BrowserModule,

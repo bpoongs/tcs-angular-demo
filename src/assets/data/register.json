@@ -1,0 +1,14 @@
+{
+    "register": [
+        {
+            "id": "smith@go.com",
+            "name": "Smith",
+            "password": "test"
+        },
+        {
+            "id": "praveen@go.com",
+            "name": "Praveen",
+            "password": "test"
+        }
+    ]
+}
